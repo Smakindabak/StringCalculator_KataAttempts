@@ -8,9 +8,23 @@ namespace StringCalculator.Core
 {
     public class Calculator
     {
-        public object Add()
+        public int Add(string numberText)
         {
-            throw new NotImplementedException();
+            int result = default;
+
+            var numbers = numberText.Split(',');
+
+            foreach (var number in numbers)
+            {
+                if (int.TryParse(number, out int value))
+                {
+                    result += value;
+                } 
+            }
+
+            return result;
         }
+
+       
     }
 }
